@@ -1,0 +1,150 @@
+{
+    "flightType": "roundTrip",
+    "minPrice": 3000,
+    "maxPrice": 9000,
+    "flightDetails": [{
+        "price": 9000,
+        "flightLogo": "aircanada.jpg",
+        "toFlight": {
+            "flightNumber": "AL-202",
+            "flightFrom": "PNQ",
+            "flightTo": "DEL",
+            "depart": "10:00 AM",
+            "arrive": "12:00 PM"
+        },
+
+        "backFlight": {
+            "flightNumber": "AL-202",
+            "flightFrom": "PNQ",
+            "flightTo": "DEL",
+            "depart": "10:00 AM",
+            "arrive": "12:00 PM"
+        }
+    }, {
+        "price": 8000,
+        "flightLogo": "american-airlines.jpg",
+        "toFlight": {
+            "flightNumber": "AL-202",
+            "flightFrom": "PNQ",
+            "flightTo": "DEL",
+            "depart": "10:00 AM",
+            "arrive": "12:00 PM"
+        },
+
+        "backFlight": {
+            "flightNumber": "AL-202",
+            "flightFrom": "PNQ",
+            "flightTo": "DEL",
+            "depart": "10:00 AM",
+            "arrive": "12:00 PM"
+        }
+    }, {
+        "price": 7000,
+        "flightLogo": "croatia.jpg",
+        "toFlight": {
+            "flightNumber": "AL-202",
+            "flightFrom": "PNQ",
+            "flightTo": "DEL",
+            "depart": "10:00 AM",
+            "arrive": "12:00 PM"
+        },
+
+        "backFlight": {
+            "flightNumber": "AL-202",
+            "flightFrom": "PNQ",
+            "flightTo": "DEL",
+            "depart": "10:00 AM",
+            "arrive": "12:00 PM"
+        }
+    }, {
+        "price": 6000,
+        "flightLogo": "aircanada.jpg",
+        "toFlight": {
+            "flightNumber": "AL-202",
+            "flightFrom": "PNQ",
+            "flightTo": "DEL",
+            "depart": "10:00 AM",
+            "arrive": "12:00 PM"
+        },
+
+        "backFlight": {
+            "flightNumber": "AL-202",
+            "flightFrom": "PNQ",
+            "flightTo": "DEL",
+            "depart": "10:00 AM",
+            "arrive": "12:00 PM"
+        }
+    }, {
+        "price": 5000,
+        "flightLogo": "croatia.jpg",
+        "toFlight": {
+            "flightNumber": "AL-202",
+            "flightFrom": "PNQ",
+            "flightTo": "DEL",
+            "depart": "10:00 AM",
+            "arrive": "12:00 PM"
+        },
+
+        "backFlight": {
+            "flightNumber": "AL-202",
+            "flightFrom": "PNQ",
+            "flightTo": "DEL",
+            "depart": "10:00 AM",
+            "arrive": "12:00 PM"
+        }
+    }, {
+        "price": 4000,
+        "flightLogo": "lufthansa.jpg",
+        "toFlight": {
+            "flightNumber": "AL-202",
+            "flightFrom": "PNQ",
+            "flightTo": "DEL",
+            "depart": "10:00 AM",
+            "arrive": "12:00 PM"
+        },
+
+        "backFlight": {
+            "flightNumber": "AL-202",
+            "flightFrom": "PNQ",
+            "flightTo": "DEL",
+            "depart": "10:00 AM",
+            "arrive": "12:00 PM"
+        }
+    }, {
+        "price": 3000,
+        "flightLogo": "croatia.jpg",
+        "toFlight": {
+            "flightNumber": "AL-202",
+            "flightFrom": "PNQ",
+            "flightTo": "DEL",
+            "depart": "10:00 AM",
+            "arrive": "12:00 PM"
+        },
+
+        "backFlight": {
+            "flightNumber": "AL-202",
+            "flightFrom": "PNQ",
+            "flightTo": "DEL",
+            "depart": "10:00 AM",
+            "arrive": "12:00 PM"
+        }
+    }, {
+        "price": 4000,
+        "flightLogo": "lufthansa.jpg",
+        "toFlight": {
+            "flightNumber": "AL-202",
+            "flightFrom": "PNQ",
+            "flightTo": "DEL",
+            "depart": "10:00 AM",
+            "arrive": "12:00 PM"
+        },
+
+        "backFlight": {
+            "flightNumber": "AL-202",
+            "flightFrom": "PNQ",
+            "flightTo": "DEL",
+            "depart": "10:00 AM",
+            "arrive": "12:00 PM"
+        }
+    }]
+}

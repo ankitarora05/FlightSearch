@@ -1,0 +1,140 @@
+<div class="flight-main-container" ng-controller="FlightSearchCtrl as flightCtrl">
+    <div class="row">
+        <div class="col-12">
+            <div class="main-search-container">
+                <div class="row">
+                    <div class="col-6columns">
+                        <h1 class="page-title">Flight Search Engine</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3 columns">
+                        <div>
+                            <div class="search-tabs">
+                                <ul>
+                                    <li ng-class="flightCtrl.activeTab === 'roundTrip' ? 'activeTab' : ''" ng-click="flightCtrl.setActiveTab('roundTrip')">Round Trip</li>
+                                    <li ng-class="flightCtrl.activeTab === 'oneWay' ? 'activeTab' : ''" ng-click="flightCtrl.setActiveTab('oneWay')">One Way</li>
+                                </ul>
+                            </div>
+                            <div class="search-params">
+                                <div class="form-group">
+                                    <label>From</label>
+                                    <i class="fa fa-map-marker"></i>
+                                    <input type="text" placeholder="Any worldwide city or airport" ng-model="flightCtrl.fromCity"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>To</label>
+                                    <i class="fa fa-map-marker"></i>
+                                    <input type="text" placeholder="Any worldwide city or airport" ng-model="flightCtrl.toCity" required/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Departing</label>
+                                    <i class="fa fa-calendar"></i>
+                                    <div class="date-range-container" ng-click="flightCtrl.showDepartDateRange = !flightCtrl.showDepartDateRange" ng-bind-html="flightCtrl.showDeptDate ? flightCtrl.dateStDeptValue : 'Please select a departure date' | to_trusted"></div>
+                                    <div class="departureDatePicker" ng-show="flightCtrl.showDepartDateRange">
+                                        <mighty-datepicker ng-model="flightCtrl.dateStDept" options="flightCtrl.optionsStDept"></mighty-datepicker>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div ng-if="flightCtrl.activeTab === 'roundTrip'">
+                                        <label>Returning</label>
+                                        <i class="fa fa-calendar"></i>
+                                        <div class="date-range-container" ng-click="flightCtrl.showReturnDateRange = !flightCtrl.showReturnDateRange" ng-bind-html="flightCtrl.showReturnDate ? flightCtrl.dateStReturnValue : 'Please select a return date' | to_trusted"></div>
+                                        <div class="departureDatePicker" ng-show="flightCtrl.showReturnDateRange">
+                                            <mighty-datepicker ng-model="flightCtrl.dateStReturn" options="flightCtrl.optionsStReturn"></mighty-datepicker>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Passengers</label>
+                                    <select class="form-control" ng-model="flightCtrl.passengersCount" ng-change="flightCtrl.setPassengerCount(flightCtrl.passengersCount)">
+                                        <option ng-repeat="pass in [0,1,2,3,4,5,6,7,8,9,10] track by $index">{{$index}}</option>
+                                    </select>
+                                </div>
+                                <div class="book-button search-position" ng-click="flightCtrl.fetchSearchData()" ng-bind="(flightCtrl.searchExecuted) ? 'Modify Search' : 'Search for Flights'"></div>
+                            </div>
+                        </div>
+                        <div class="search-refine-block row" ng-if="flightCtrl.searchExecuted">
+                            Refine Flight Search
+                            <div class="refine-search-box">
+                                <rzslider rz-slider-floor="flightCtrl.priceSlider.floor" rz-slider-ceil="flightCtrl.priceSlider.ceil" rz-slider-model="flightCtrl.priceSlider.min" rz-slider-high="flightCtrl.priceSlider.max"></rzslider>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-9 columns">
+                        <div class="search-box">
+                            <div class="search-main-container">
+                                <div class="row" ng-if="flightCtrl.searchExecuted">
+                                    <div class="col-9 columns">
+                                        <div class="breadcrum-title end columns" ng-if="flightCtrl.fromCity  || flightCtrl.toCity">{{flightCtrl.fromCity}}</div>
+                                        <div class="breadcrum-title end columns" ng-if="flightCtrl.fromCity  || flightCtrl.toCity">{{flightCtrl.toCity}}</div>
+                                        <div class="breadcrum-title end columns" ng-if="flightCtrl.activeTab === 'roundTrip'">{{flightCtrl.fromCity}}</div>
+                                    </div>
+                                    <div class="col-3 columns clearfix">
+                                        <div class="date-range right" ng-if="flightCtrl.showDeptDate && flightCtrl.dateStDeptValue && flightCtrl.searchExecuted">Depart: <span ng-bind-html="flightCtrl.dateStDeptValue | to_trusted"></span></div>
+                                        <div class="clear-right"></div>
+                                        <div class="date-range right" ng-if="flightCtrl.activeTab === 'roundTrip' && flightCtrl.showReturnDate && flightCtrl.dateStReturnValue && flightCtrl.searchExecuted">Return: <span ng-bind-html="flightCtrl.dateStReturnValue | to_trusted"></span></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 columns">
+                                        <div class="search-result-container" ng-if="!(flightCtrl.searchedData.length > 0)">
+                                            <div class="no-search" ng-bind="(flightCtrl.activeTab === 'roundTrip') ? 'Search round trip flights worldwide' : 'Search one way flights worldwide'"></div>
+                                        </div>
+                                        <div class="search-result-container" ng-repeat="flight in flightCtrl.searchedData |showOnlyFilteredProducts:flightCtrl.priceSlider.min:flightCtrl.priceSlider.max" ng-if="flightCtrl.searchedData.length > 0">
+                                            <div class="search-info-box row">
+                                                <div class="col-9 columns">
+                                                    <div class="row">
+                                                        <div class="col-12 columns">
+                                                            <div class="price-box">Rs. {{flight.price}}</div>
+                                                        </div>
+                                                        <div class="col-6 columns">
+                                                            <div class="flight-details-container">
+                                                                <div class="fligt-number">{{flight.toFlight.flightNumber}}</div>
+                                                                <div class="flight-info-container">
+                                                                    <div class="flight-breadcrum">
+                                                                        {{flight.toFlight.flightFrom}} > {{flight.toFlight.flightTo}}
+                                                                    </div>
+                                                                    <div class="depart-block">
+                                                                        Depart: {{flight.toFlight.depart}}
+                                                                    </div>
+                                                                    <div class="arrival-block">
+                                                                        Arrive: {{flight.toFlight.arrive}}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 columns" ng-hide="flightCtrl.flightsType === 'oneWay'">
+                                                            <div class="flight-details-container">
+                                                                <div class="fligt-number">{{flight.backFlight.flightNumber}}</div>
+                                                                <div class="flight-info-container">
+                                                                    <div class="flight-breadcrum">
+                                                                        {{flight.backFlight.flightFrom}} > {{flight.backFlight.flightTo}}
+                                                                    </div>
+                                                                    <div class="depart-block">
+                                                                        Depart: {{flight.backFlight.depart}}
+                                                                    </div>
+                                                                    <div class="arrival-block">
+                                                                        Arrive: {{flight.backFlight.arrive}}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-3 img-book-box columns">
+                                                    <img ng-src="assets/images/{{flight.flightLogo}}" />
+                                                    <div class="book-button buy-position">Book this Flight</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

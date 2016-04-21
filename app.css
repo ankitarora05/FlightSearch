@@ -1,0 +1,669 @@
+    /* app css stylesheet */
+    
+    html,
+    body {
+        font-size: 14px;
+        height: 100%;
+        overflow-y: auto;
+    }
+    
+    *,
+    *:before,
+    *:after {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    
+    @font-face {
+        font-family: 'SourceSansPro-Regular';
+        src: url('assets/fonts/source-sans-pro/SourceSansPro-Regular.otf');
+    }
+    
+    @font-face {
+        font-family: 'SourceSansProBold';
+        src: url('assets/fonts/source-sans-pro/SourceSansPro-Bold.otf');
+        font-weight: bold;
+    }
+    
+    @font-face {
+        font-family: 'SourceSansProItalic';
+        src: url('assets/fonts/source-sans-pro/SourceSansPro-It.otf');
+        font-style: italic;
+    }
+    
+    @font-face {
+        font-family: 'SourceSansProBoldItalic';
+        src: url('assets/fonts/source-sans-pro/SourceSansPro-BoldIt.otf');
+        font-weight: bold;
+        font-style: italic;
+    }
+    
+    @font-face {
+        font-family: 'SourceSansProLight';
+        src: url('assets/fonts/source-sans-pro/SourceSansPro-Light.otf');
+        font-weight: 300;
+    }
+    
+    @font-face {
+        font-family: 'SourceSansProLightItalic';
+        src: url('assets/fonts/source-sans-pro/SourceSansPro-LightIt.otf');
+        font-style: italic;
+        font-weight: 300;
+    }
+    
+    body {
+        /* background-image: url(assets/images/bgImageBig.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; */
+        color: #222;
+        cursor: auto;
+        font-family: 'SourceSansPro', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+    
+    .flight-main-container {
+        width: 100%;
+        max-width: 100rem;
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+    
+    .clearfix:before,
+    .clearfix:after {
+        content: " ";
+        display: table;
+    }
+    
+    .clearfix:after {
+        clear: both;
+    }
+    /*-- our cleafix hack -- */
+    
+    .row:before,
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    
+    .column,
+    .columns {
+        float: left;
+    }
+    
+    .column + .column:last-child,
+    .columns + .column:last-child,
+    .column + .columns:last-child,
+    .columns + .columns:last-child {
+        float: right;
+    }
+    
+    .column + .column.end,
+    .columns + .column.end,
+    .column + .columns.end,
+    .columns + .columns.end {
+        float: left;
+    }
+    
+    .main-search-container .page-title {
+        font-size: 4em;
+        margin: 0.3em 0;
+        font-family: 'SourceSansProLight';
+        color: #565656;
+        margin-left: -5px;
+    }
+    
+    .search-box {
+        border-left: 1px solid #dedede;
+        padding-left: 2em;
+        padding-bottom: 1em;
+    }
+    
+    .home-image-container {}
+    
+    .home-image-container h3 {
+        font-family: 'SourceSansProLight';
+        font-size: 2em;
+        color: #565656;
+        margin: 0;
+    }
+    
+    .img-col {
+        margin-top: 1em;
+    }
+    
+    .no-padding {
+        padding: 0 !important;
+    }
+    
+    .search-main-container {}
+    
+    .search-main-container .breadcrum-title {
+        font-family: 'SourceSansProLight';
+        font-size: 2em;
+        color: #565656;
+        margin: 0;
+        margin-right: 1em;
+    }
+    
+    .search-main-container .breadcrum-title:after {
+        content: ">";
+        position: relative;
+        left: 0.5em;
+        top: 1px;
+        font-weight: bold;
+    }
+    
+    .search-main-container .breadcrum-title:last-child:after {
+        content: " ";
+    }
+    
+    .date-range {
+        font-family: 'SourceSansProLight';
+        font-size: 1em;
+        color: #565656;
+        margin: 0;
+    }
+    
+    .date-range-container {
+        margin-top: 0.5em;
+        padding: 0.6em 0.2em;
+        width: 90%;
+        text-indent: 25px;
+        border: 1px solid #A9A9A9;
+        outline: none;
+    }
+    
+    .left {
+        float: left;
+    }
+    
+    .right {
+        float: right;
+    }
+    
+    .clear-right {
+        clear: right;
+    }
+    
+    .search-result-container {
+        margin-top: 1.2em;
+        border: 1px solid #dedede;
+        min-height: 130px;
+    }
+    
+    .search-result-container .search-info-box {
+        padding: 1em;
+        color: #626262;
+    }
+    
+    .search-result-container .no-search {
+        padding: 1em;
+        color: #626262;
+        text-align: center;
+        font-size: 3em;
+    }
+    
+    .img-book-box {}
+    
+    .img-book-box img {
+        width: 120px;
+        height: 120px;
+        float: right;
+    }
+    
+    .search-result-container:hover {
+        color: #737373;
+        border: 1px solid #ed8323;
+        -webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+    }
+    
+    .book-button {
+        background: #ed8323;
+        color: #fff;
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        font-family: 'SourceSansPro-Regular';
+        border-radius: 2px;
+    }
+    
+    .buy-position {
+        margin-top: 1em;
+        float: right;
+    }
+    
+    .search-position {
+        margin-top: 1.2em;
+    }
+    
+    .price-box {
+        font-family: 'SourceSansPro-Regular';
+        font-size: 2.5em;
+        font-weight: bold;
+        margin-top: -0.2em;
+    }
+    
+    .flight-details-container {
+        display: block;
+        margin-top: 1em;
+    }
+    
+    .flight-details-container .flight-number {
+        font-family: 'SourceSansPro-Regular';
+        font-size: 1.2em;
+    }
+    
+    .flight-details-container .flight-info-container {
+        font-family: 'SourceSansPro-Regular';
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+    
+    .search-tabs {}
+    
+    .search-tabs ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .search-tabs li {
+        display: inline;
+        color: #ed8323;
+        background-color: #F8F8F8;
+        font-size: 1em;
+        font-family: 'SourceSansPro-Regular';
+        cursor: pointer;
+        padding: 3% 8%;
+    }
+    
+    .search-tabs li:hover {
+        background-color: #eeeeee;
+    }
+    
+    .activeTab {
+        color: #fff !important;
+        background: #ed8323 !important;
+    }
+    
+    .search-params {}
+    
+    .form-group {
+        position: relative;
+    }
+    
+    .form-group i {
+        position: absolute;
+        top: 41px;
+        left: 10px;
+        color: #A9A9A9;
+    }
+    
+    .form-group select {
+        margin-top: 0.5em;
+        padding: 0.6em 0.2em;
+        width: 90%;
+        border: 1px solid #A9A9A9;
+        outline: none;
+    }
+    
+    .search-params label {
+        display: block;
+        font-family: 'SourceSansProLight';
+        font-size: 1.2em;
+        margin-top: 1.2em;
+    }
+    
+    .search-params input[type="text"] {
+        margin-top: 0.5em;
+        padding: 0.6em 0.2em;
+        width: 90%;
+        text-indent: 25px;
+        border: 1px solid #A9A9A9;
+        outline: none;
+    }
+    
+    input[name="dateRange"] {
+        cursor: pointer;
+    }
+    /*Date Picker Styling*/
+    
+    .departureDatePicker {
+        position: absolute;
+        top: 65px;
+        width: 90%;
+    }
+    
+    .mighty-picker-calendar__day-wrapper {
+        text-align: center !important;
+    }
+    
+    .mighty-picker-calendar__day {
+        border: 1px solid #dedede !important;
+        padding: 7px !important;
+    }
+    
+    .mighty-picker__month {
+        margin: 0 -21px !important;
+        margin-bottom: 2px;
+        padding-bottom: 1.5em;
+    }
+    
+    .mighty-picker__wrapper {
+        background: #fff;
+        border: 1px solid #dedede;
+        text-align: center;
+    }
+    
+    .mighty-picker-calendar__day--selected {
+        color: #ed8323 !important;
+    }
+    
+    .mighty-picker__month-name {
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .mighty-picker__holder {
+        width: 100%;
+        position: relative;
+        z-index: 100;
+    }
+    
+    .search-params input[type="text"]:focus,
+    .search-params input[type="text"]:active {
+        outline: none;
+        border: 1px solid #ed8323;
+    }
+    
+    .search-refine-block {
+        width: 90%;
+        padding: 0.8em 0;
+        font-family: 'SourceSansPro-Regular';
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+    
+    .col-1 {
+        width: 8.33333%;
+    }
+    
+    .col-2 {
+        width: 16.66667%;
+    }
+    
+    .col-3 {
+        width: 25%;
+    }
+    
+    .col-4 {
+        width: 33.33333%;
+    }
+    
+    .col-5 {
+        width: 41.66667%;
+    }
+    
+    .col-6 {
+        width: 50%;
+    }
+    
+    .col-7 {
+        width: 58.33333%;
+    }
+    
+    .col-8 {
+        width: 66.66667%;
+    }
+    
+    .col-9 {
+        width: 75%;
+    }
+    
+    .col-10 {
+        width: 83.33333%;
+    }
+    
+    .col-11 {
+        width: 91.66667%;
+    }
+    
+    .col-12 {
+        width: 100%;
+    }
+    
+    @media all and (max-width:800px) {
+        .col-1 {
+            width: 33.33%;
+        }
+        .col-2 {
+            width: 50%;
+        }
+        .col-3 {
+            width: 100%;
+        }
+        .col-4 {
+            width: 100%;
+        }
+        .col-5 {
+            width: 100%;
+        }
+        .col-6 {
+            width: 100%;
+        }
+        .col-7 {
+            width: 100%;
+        }
+        .col-8 {
+            width: 100%;
+        }
+        .col-9 {
+            width: 100%;
+        }
+        .col-10 {
+            width: 100%;
+        }
+        .col-11 {
+            width: 100%;
+        }
+        .col-12 {
+            width: 100%;
+        }
+        .row .col-2:last-of-type {
+            width: 100%;
+        }
+        .row .col-5 ~ .col-1 {
+            width: 100%;
+        }
+        .search-box {
+            border: none;
+            padding-left: 0;
+            margin-top: 1em;
+        }
+        .date-range {
+            float: left !important;
+        }
+        .img-book-box img {
+            float: left;
+        }
+        .buy-position {
+            float: left;
+            clear: left;
+        }
+        .img-book-box {
+            margin-top: 1em;
+        }
+        .search-params {
+            margin-top: 3em;
+        }
+    }
+    
+    @media all and (max-width:650px) {
+        .col-1 {
+            width: 50%;
+        }
+        .col-2 {
+            width: 100%;
+        }
+        .col-3 {
+            width: 100%;
+        }
+        .col-4 {
+            width: 100%;
+        }
+        .col-5 {
+            width: 100%;
+        }
+        .col-6 {
+            width: 100%;
+        }
+        .col-7 {
+            width: 100%;
+        }
+        .col-8 {
+            width: 100%;
+        }
+        .col-9 {
+            width: 100%;
+        }
+        .col-10 {
+            width: 100%;
+        }
+        .col-11 {
+            width: 100%;
+        }
+        .col-12 {
+            width: 100%;
+        }
+        .search-box {
+            border: none;
+            padding-left: 0;
+            margin-top: 1em;
+        }
+        .date-range {
+            float: left !important;
+        }
+        .img-book-box img {
+            float: left;
+        }
+        .buy-position {
+            float: left;
+            clear: left;
+        }
+        .img-book-box {
+            margin-top: 1em;
+        }
+        .search-params {
+            margin-top: 3em;
+        }
+    }
+    
+    .refine-search-box {
+        margin-top: 1em;
+    }
+    
+    rzslider {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: 10px;
+        margin: 30px 0 15px 0;
+        vertical-align: middle;
+    }
+    
+    rzslider span {
+        position: absolute;
+        display: inline-block;
+        white-space: nowrap;
+    }
+    
+    rzslider span.base {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+    }
+    
+    rzslider span.bar {
+        z-index: 0;
+        width: 99%;
+        height: 100%;
+        background: #AEAEAE;
+        bottom: 4px;
+    }
+    
+    rzslider span.bar.selection {
+        z-index: 1;
+        width: 0;
+        background: #ED8323;
+    }
+    
+    rzslider span.pointer {
+        top: -15px;
+        z-index: 2;
+        width: 32px;
+        margin-left: -1px;
+        height: 32px;
+        cursor: pointer;
+        background-color: #dedede;
+        -webkit-border-radius: 16px;
+        -moz-border-radius: 16px;
+        border-radius: 16px;
+    }
+    
+    rzslider span.pointer:after {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        width: 8px;
+        height: 8px;
+        background: #AEAEAE;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        content: '';
+    }
+    
+    rzslider span.pointer:hover:after {
+        background-color: #ED8323;
+    }
+    
+    rzslider span.pointer.active:after {
+        background-color: #ED8323;
+    }
+    
+    rzslider span.bubble {
+        top: -41px;
+        font-size: 14px;
+        padding: 1px 7px;
+        color: #565656;
+        cursor: default;
+    }
+    
+    rzslider span.bubble.selection {
+        top: 15px;
+    }
+    
+    rzslider span.bubble.limit {
+        /*color: #808080;*/
+    }
